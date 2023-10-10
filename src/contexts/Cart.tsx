@@ -3,7 +3,9 @@ import * as React from 'react'
 import { GenericBuilder, Cart, Order } from '../models';
 
 const LOCAL_STORAGE_KEY = "cartState";
-const emptyCart: Cart = (new GenericBuilder<Cart>().set('orders', []).build())
+const emptyCart: Cart = GenericBuilder.new<Cart>()
+    .set('orders', [])
+    .build()
 
 type Props = { children?: React.ReactNode };
 type Action = AddItemAction | RemoveItemAction;
@@ -82,7 +84,7 @@ class AddItemAction {
             newOrders.push(this.order)
         }
 
-        return new GenericBuilder<Cart>()
+        return GenericBuilder.new<Cart>()
             .set('orders', newOrders)
             .build();
     }
@@ -103,7 +105,7 @@ class RemoveItemAction {
             return order.quantity > 0 ? order : null;
         }).filter(isNotNullOrUndefined)
 
-        return new GenericBuilder<Cart>()
+        return GenericBuilder.new<Cart>()
             .set('orders', newOrders)
             .build();
     }

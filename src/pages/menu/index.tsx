@@ -12,7 +12,6 @@ import HorizontalItemCard from '../../components/horizontalItemCard';
 import { GenericBuilder, Category, Item, Order } from '../../models'
 import { AddItemAction, useCart } from '../../contexts/Cart';
 
-import '../../index.css'
 import styles from './MenuPage.module.css'
 import '../../index.css'
 
@@ -71,25 +70,25 @@ const MenuPage: React.FC = () => {
                     </GenericSection>
                 </div>
             </Flex>
-            {
-                state.orders.length > 0 &&
+
+            {state.orders.length > 0 &&
                 <Button className={styles.continue_button}>
                     Continue 
                 </Button> 
             } 
+
             <DialogOverlay className={styles.dialog_overlay}>
                 <DialogContent className={``}>
                     {selectedItem !== null && 
                         <OrderForm 
                             item={selectedItem} 
-                            onSubmit={(item, quantity, preference) => {
-                                dispatch(new AddItemAction((new GenericBuilder<Order>()
+                            onSubmit={(item, quantity, preference) => dispatch(new AddItemAction(GenericBuilder.new<Order>()
                                     .set('item', item)
                                     .set('quantity', quantity)
                                     .set('preference', preference)
                                     .build()
-                                )))
-                            }}/>
+                                ))
+                            }/>
                     }
                 </DialogContent>
             </DialogOverlay>
@@ -115,58 +114,58 @@ const RefForwardingWrapper = forwardRef<HTMLDivElement, RefForwardingWrapperProp
 function getItems(): Item[] {
     let items: Item[] = [];
 
-    items.push(new GenericBuilder<Item>()
-            .set('id', 'item1')
-            .set('price', 100)
-            .set('name','Kucing Goreng Saus Padang asdasdasdasdasdasdasdasdas asds')
-            .set('description','Solid option')
-            .set('imageUrl','https://placekitten.com/500/500')
-            .build()
+    items.push(GenericBuilder.new<Item>()
+        .set('id', 'item1')
+        .set('price', 100)
+        .set('name','Kucing Goreng Saus Padang asdasdasdasdasdasdasdasdas asds')
+        .set('description','Solid option')
+        .set('imageUrl','https://placekitten.com/500/500')
+        .build()
     )
 
-    items.push(new GenericBuilder<Item>()
-            .set('id', 'item2')
-            .set('price', 100)
-            .set('name','Item 2')
-            .set('description','Solid option')
-            .set('imageUrl','https://placekitten.com/500/501')
-            .build()
+    items.push(GenericBuilder.new<Item>()
+        .set('id', 'item2')
+        .set('price', 100)
+        .set('name','Item 2')
+        .set('description','Solid option')
+        .set('imageUrl','https://placekitten.com/500/501')
+        .build()
     )
 
-    items.push(new GenericBuilder<Item>()
-            .set('id', 'item3')
-            .set('price', 100)
-            .set('name','Item 2')
-            .set('description','Solid option')
-            .set('imageUrl','https://placekitten.com/500/502')
-            .build()
+    items.push(GenericBuilder.new<Item>()
+        .set('id', 'item3')
+        .set('price', 100)
+        .set('name','Item 2')
+        .set('description','Solid option')
+        .set('imageUrl','https://placekitten.com/500/502')
+        .build()
     )
 
-    items.push(new GenericBuilder<Item>()
-            .set('id', 'item4')
-            .set('price', 100)
-            .set('name','Item 2')
-            .set('description','Solid option')
-            .set('imageUrl','https://placekitten.com/500/503')
-            .build()
+    items.push(GenericBuilder.new<Item>()
+        .set('id', 'item4')
+        .set('price', 100)
+        .set('name','Item 2')
+        .set('description','Solid option')
+        .set('imageUrl','https://placekitten.com/500/503')
+        .build()
     )
 
-    items.push(new GenericBuilder<Item>()
-            .set('id', 'item5')
-            .set('price', 100)
-            .set('name','Item 2')
-            .set('description','Solid option')
-            .set('imageUrl','https://placekitten.com/500/504')
-            .build()
+    items.push(GenericBuilder.new<Item>()
+        .set('id', 'item5')
+        .set('price', 100)
+        .set('name','Item 2')
+        .set('description','Solid option')
+        .set('imageUrl','https://placekitten.com/500/504')
+        .build()
     )
 
-    items.push(new GenericBuilder<Item>()
-            .set('id', 'item6')
-            .set('price', 100)
-            .set('name','Item 2')
-            .set('description','Solid option')
-            .set('imageUrl','https://placekitten.com/500/505')
-            .build()
+    items.push(GenericBuilder.new<Item>()
+        .set('id', 'item6')
+        .set('price', 100)
+        .set('name','Item 2')
+        .set('description','Solid option')
+        .set('imageUrl','https://placekitten.com/500/505')
+        .build()
     )
 
     return items;
@@ -175,7 +174,7 @@ function getItems(): Item[] {
 function getCategories(): Category[] {
     let categories: Category[] = [];
 
-    categories.push(new GenericBuilder<Category>()
+    categories.push(GenericBuilder.new<Category>()
         .set('id', 'category 1')
         .set('name', 'entree')
         .set('description', 'nice')
