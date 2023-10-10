@@ -1,0 +1,47 @@
+@import '@radix-ui/colors/orange.css';
+@import '@radix-ui/colors/gray.css';
+
+.menu {
+    /* Add more global styles for the menu page if needed */
+    overflow-y: scroll;
+    padding-bottom: 20%;
+}
+
+.dialog_overlay {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.featured_section {
+    border-bottom: .1rem solid var(--gray-3) !important
+}
+
+.catagories_header {
+    border-top: .1rem solid var(--gray-3) !important
+}
+
+.catagories_section {
+    border-bottom: .1rem solid var(--gray-3) !important
+}
+
+.full_menu_header {
+    border-top: .1rem solid var(--gray-3) !important
+}
+
+.continue_button {
+    position: fixed;
+    left: 50%;
+    bottom: 3%;
+    transform: translateX(-50%);
+    height: 2.5rem;
+    border-top-left-radius: 1.5rem !important;
+    border-bottom-left-radius: 1.5rem !important;
+    border-top-right-radius: 1.5rem !important;
+    border-bottom-right-radius: 1.5rem !important;
+    width: 80%;
+}

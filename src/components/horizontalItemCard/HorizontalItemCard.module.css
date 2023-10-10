@@ -1,0 +1,35 @@
+.container {
+    max-height: 20vh;
+    overflow: hidden;
+    justify-content: space-between
+}
+
+.image{
+    height: 100%;
+    width: 35%;
+    object-fit: contain;
+}
+
+.info_container {
+    padding-left: 5%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-right: 3%;
+    width: 65%;
+}
+
+.title {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;  /* Limit text to 2 lines */
+    overflow: hidden;       /* Hide the excess content */
+    margin-bottom: 0.1rem !important;
+}
+
+.description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;  /* Limit text to 2 lines */
+    overflow: hidden;       /* Hide the excess content */
+    margin-bottom: 0.2rem !important;
+}

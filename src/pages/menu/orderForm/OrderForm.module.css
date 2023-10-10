@@ -1,0 +1,62 @@
+@import '@radix-ui/colors/gray.css';
+
+.container {
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    width: 100vw;
+    height: 90vh;
+    transform: translate(-50%, -50%);
+    overflow: scroll;
+    z-index: 1001;
+    border-radius: 0.5rem !important;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 6rem;
+    /* background-color: var(--gray-6) !important;
+    background: var(--gray-6) !important; */
+}
+
+.image {
+    height: 30%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.header_section {
+    margin-bottom: 0.5rem !important;
+    border-bottom: .1rem solid var(--gray-3) !important
+}
+
+.preference_section {
+    border-top: .1rem solid var(--gray-3) !important
+}
+
+.quantity_section{
+    justify-content: center;
+    display: flex !important;
+    flex: 1;
+    padding-top: 10% !important;
+}
+
+.submit_section {
+    position: fixed;
+    bottom: 0%;
+    height: 6rem;
+    display: flex;
+    align-content: center;
+    align-items: center !important;
+    border-top: 2px solid var(--gray-3);
+    z-index: 1002;
+}
+
+.submit_button {
+    width: 100%;
+    border-radius: 5rem !important;
+    flex-direction: row;
+    padding-left: 10% !important;
+    padding-right: 10% !important;
+    justify-content: space-between !important;
+    height: 3rem !important;
+    margin: 0 !important;
+}

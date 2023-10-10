@@ -1,7 +1,7 @@
-export default class Item {
+export default class Category {
     id!: string;
-    price!: number;
     name!: string;
     description!: string;
     imageUrl!: string;
+    itemIds!: string[];
 }

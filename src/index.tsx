@@ -4,12 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { Theme } from '@radix-ui/themes';
+import '@radix-ui/themes/styles.css';
+
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <Theme accentColor="orange" grayColor="gray" hasBackground={true}>
+      <App />
+    </Theme>
   </React.StrictMode>
 );
 

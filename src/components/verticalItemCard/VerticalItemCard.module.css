@@ -1,0 +1,22 @@
+.container {
+    width: 40vw;
+}
+
+.image {
+    height: 70%;
+    width: 100%;
+    object-fit: contain;
+    overflow: hidden;
+    display: block;
+}
+
+.info_container {
+    padding: 0.5vh;
+}
+
+.title {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;  /* Limit text to 2 lines */
+    overflow: hidden;       /* Hide the excess content */
+}
