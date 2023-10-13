@@ -1,16 +1,17 @@
 import * as React from 'react';
-import styles from './VerticalItemCard.module.css'
-import '../../index.css'
 import { Box, Flex, Text } from '@radix-ui/themes';
 
-import GenericContainer from '../genericContainer'
-import { Item } from '../../models'
+import GenericContainer from '../../common/genericContainer';
+
+import { Item } from '../../../models';
+
+import styles from './VerticalItemCard.module.css'
+import '../../../index.css'
 
 type Props = {
   item: Item;
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
 } & React.HTMLAttributes<HTMLDivElement>;  // This allows for the spreading of standard div attributes
-
 
 const VerticalItemCard: React.FC<Props> = ({ item, onClick, ...props }) => {
   return (

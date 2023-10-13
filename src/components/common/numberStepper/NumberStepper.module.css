@@ -1,8 +1,9 @@
 @import '@radix-ui/colors/orange.css';
 
 .container {
-    height: 3rem;
-    width: 8rem;
+    max-height: 3rem;
+    max-width: 8rem;
+    min-width: 4rem;
     border-left: 6rem !important;
     border-right: 3rem !important;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -16,7 +17,7 @@
 .number_input {
     border: 0px !important;
     text-align: center;
-    width: 3rem;
+    width: 33%;
     font-weight: bold;
 }
 
@@ -24,16 +25,14 @@
     background-color: white !important;
     height: 100% !important;
     justify-content: center;
-    width: 2.5rem;
-    padding-left: 20% !important;
+    width: 33%;
 }
 
 .increment_button {
     background-color: white !important;
     height: 100% !important;
     justify-content: center;
-    width: 2.5rem;
-    padding-right: 20% !important;
+    width: 33%;
 }
 
 .icon {

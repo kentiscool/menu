@@ -1,10 +1,11 @@
 import * as React from 'react';
 import styles from './HorizontalItemCard.module.css'
-import '../../index.css'
+import '../../../index.css'
 import { Flex, Text } from '@radix-ui/themes';
 
-import GenericContainer from '../genericContainer';
-import { Item } from '../../models'
+import GenericContainer from '../../common/genericContainer';
+
+import Item from '../../../models/Item';
 
 type Props = {
     item: Item;

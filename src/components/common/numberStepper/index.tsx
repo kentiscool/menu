@@ -8,11 +8,12 @@ type Props = {
     onIncrement: () => void;
     onDecrement: () => void;
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    className?: string;
 };
 
-const NumberStepper: React.FC<Props> = ({ value, onIncrement, onDecrement, onChange }) => {
+const NumberStepper: React.FC<Props> = ({ value, onIncrement, onDecrement, onChange, className }) => {
     return (
-        <Flex className={styles.container}>
+        <Flex className={`${styles.container} ${className}`}>
             <Button className={styles.decrement_button} tabIndex={-1} type="button" onClick={onDecrement} aria-label="Decrement value">
                 <span className={styles.icon}>-</span>
             </Button>

@@ -3,9 +3,10 @@ import styles from './CategoryCard.module.css'
 
 import { Text } from '@radix-ui/themes';
 
-import GenericContainer from '../genericContainer';
+import { Category } from '../../../models';
 
-import { Category } from '../../models'
+import GenericContainer from '../../common/genericContainer';
+
 
 const CategoryCard: React.FC<{ category: Category }> = ({ category }) => {
     return (

@@ -3,11 +3,11 @@ import { Button, Flex, Heading } from '@radix-ui/themes';
 import { Dialog, DialogTrigger, DialogOverlay, DialogContent } from '@radix-ui/react-dialog';
 
 import OrderForm from './orderForm';
-import GenericSection from '../../components/genericSection';
-import HorizontalList from '../../components/horizontalList';
-import VerticalItemCard from '../../components/verticalItemCard';
-import CategoryCard from '../../components/categoryCard';
-import HorizontalItemCard from '../../components/horizontalItemCard';
+import GenericSection from '../../components/common/genericSection';
+import HorizontalList from '../../components/common/horizontalList';
+import CategoryCard from '../../components/menu/categoryCard';
+import HorizontalItemCard from '../../components/menu/horizontalItemCard';
+import VerticalItemCard from '../../components/menu/verticalItemCard';
 
 import { GenericBuilder, Category, Item, Order } from '../../models'
 import { AddItemAction, useCart } from '../../contexts/Cart';
