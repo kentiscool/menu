@@ -11,7 +11,9 @@
 }
 
 .info_container {
-    padding: 0.5vh;
+    padding: 0.3rem;
+    padding-top: 0.5rem;
+    
 }
 
 .title {
@@ -19,4 +21,5 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;  /* Limit text to 2 lines */
     overflow: hidden;       /* Hide the excess content */
+    margin-bottom: 0.2rem;
 }

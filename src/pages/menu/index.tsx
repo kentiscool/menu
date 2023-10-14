@@ -25,7 +25,7 @@ const MenuPage: React.FC = () => {
             <Flex direction='column' gap='2' className={`${styles.menu} background`}>
                 <div>
                     <GenericSection>
-                        <Heading size="5">Featured Items</Heading>
+                        <h1>Featured Items</h1>
                     </GenericSection>
                     <GenericSection className={styles.featured_section} horizontallyPadded={false}>
                         <HorizontalList 
@@ -43,7 +43,7 @@ const MenuPage: React.FC = () => {
                 
                 <div>
                     <GenericSection className={styles.catagories_header}>
-                        <Heading size="5">Categories</Heading>
+                        <h1>Categories</h1>
                     </GenericSection>
                     
                     <GenericSection horizontallyPadded={false} className={styles.catagories_section}>
@@ -56,7 +56,7 @@ const MenuPage: React.FC = () => {
 
                 <div>
                     <GenericSection className={styles.full_menu_header}>
-                        <Heading size="5">Full Menu</Heading>
+                        <h1>Full Menu</h1>
                     </GenericSection>
 
                     <GenericSection>

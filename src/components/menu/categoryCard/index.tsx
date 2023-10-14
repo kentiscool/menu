@@ -7,12 +7,11 @@ import { Category } from '../../../models';
 
 import GenericContainer from '../../common/genericContainer';
 
-
 const CategoryCard: React.FC<{ category: Category }> = ({ category }) => {
     return (
         <GenericContainer className={styles.container}>
             <img src={category.imageUrl} className={styles.image}/>
-            <Text highContrast={true} className={`${styles.title} small_heading`}>{category.name}</Text>
+            <h2 className={styles.title}>{category.name}</h2>
         </GenericContainer>
     )
 }

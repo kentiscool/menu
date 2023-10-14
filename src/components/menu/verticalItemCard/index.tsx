@@ -19,12 +19,8 @@ const VerticalItemCard: React.FC<Props> = ({ item, onClick, ...props }) => {
       <Flex direction="column" onClick={onClick}>
         <img src={item.imageUrl} className={`${styles.image}`}/>
         <Box className={`${styles.info_container}`}>
-          <Text as="div" weight="bold" className={`${styles.title} small_heading`}>
-            {item.name}
-          </Text>
-          <Text weight="bold" color="gray" className={`${styles.price} secondary_text`}>
-            {item.price}
-          </Text>
+          <h2 className={styles.title}>{item.name}</h2>
+          <h3 className={styles.price}>{item.price}</h3>
         </Box>
       </Flex>
     </GenericContainer>

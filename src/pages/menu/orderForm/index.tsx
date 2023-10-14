@@ -1,8 +1,8 @@
 import React from 'react';
 import { Button, Flex, Heading, Separator, Text, TextArea } from '@radix-ui/themes';
 
-import GenericSection from '../../../components/genericSection';
-import NumberStepper from '../../../components/numberStepper';
+import GenericSection from '../../../components/common/genericSection';
+import NumberStepper from '../../../components/common/numberStepper';
 
 import { Item } from '../../../models'
 
@@ -30,15 +30,15 @@ const OrderForm: React.FC<OrderFormProps> = ({ item, onSubmit }) => {
                 <img src={item?.imageUrl} className={styles.image}/>
                 <GenericSection className={styles.header_section}>
                     <Flex direction="column" m="0">
-                        <Heading>{item?.name}</Heading>
-                        <Text color='gray' className='secondary_text'>{item?.description}</Text>
+                        <h1 className={styles.title}>{item?.name}</h1>
+                        <h3>{item?.description}</h3>
                     </Flex>
                 </GenericSection>
                 
                 <GenericSection separated className={styles.preference_section}>
                     <Flex direction="column">
-                        <Text weight="bold">Preferences</Text>
-                        <Text color='gray' weight='bold' size='1'>Optional</Text>
+                        <h2>Preferences</h2>
+                        <h3>Optional</h3>
                         <TextArea onChange={e => setPreference(e.target.value)} placeholder="Reply to comment…" autoFocus={false} tabIndex={-1}/>
                         <Separator orientation="horizontal" size="4"/>
                     </Flex>
@@ -56,8 +56,8 @@ const OrderForm: React.FC<OrderFormProps> = ({ item, onSubmit }) => {
 
             <GenericSection className={styles.submit_section}>
                 <Button className={styles.submit_button} tabIndex={-1}>
-                    <Text>Add To Order</Text>
-                    <Text>{item?.price}</Text>
+                    <h2>Add To Order</h2>
+                    <h2>{item?.price}</h2>
                 </Button>
             </GenericSection>
         </form>

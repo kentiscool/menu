@@ -1,6 +1,7 @@
 import * as React from 'react';
 import styles from './HorizontalItemCard.module.css'
 import '../../../index.css'
+
 import { Flex, Text } from '@radix-ui/themes';
 
 import GenericContainer from '../../common/genericContainer';
@@ -18,15 +19,9 @@ const HorizontalItemCard: React.FC<Props> = ({ item, className, onClick }) => {
         <GenericContainer>
             <Flex direction="row" justify="between" className={`${styles.container} ${className}`} onClick={onClick}>
                 <Flex direction="column" justify="center" className={styles.info_container}>
-                    <Text as="div" className={`${styles.title} small_heading`}>
-                        {item.name}
-                    </Text>
-                    <Text as="div" color="gray" className={`${styles.description} secondary_text`}>
-                        {item.description}
-                    </Text>
-                    <Text color="gray" className={`${styles.price} secondary_text`}>
-                        {item.price}
-                    </Text>
+                    <h2 className={styles.title}>{item.name}</h2>
+                    <h3 className={styles.description}>{item.description}</h3>
+                    <h3>{item.price}</h3>
                 </Flex>
                 <img src={item.imageUrl} className={styles.image}/>
             </Flex>

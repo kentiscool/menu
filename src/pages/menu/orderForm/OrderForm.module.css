@@ -28,6 +28,10 @@
     border-bottom: .1rem solid var(--gray-3) !important
 }
 
+.title {
+    margin-bottom: 0.3rem;
+}
+
 .preference_section {
     border-top: .1rem solid var(--gray-3) !important
 }
