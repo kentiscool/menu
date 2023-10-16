@@ -1,35 +1,35 @@
-import React from "react";
-import { Button, Flex, Separator, TextArea } from "@radix-ui/themes";
+import React from 'react'
+import { Button, Flex, Separator, TextArea } from '@radix-ui/themes'
 
-import GenericSection from "../../../components/common/genericSection";
-import NumberStepper from "../../../components/common/numberStepper";
+import { type Item } from '../../../models'
 
-import { type Item } from "../../../models";
+import GenericSection from '../../../components/common/genericSection'
+import NumberStepper from '../../../components/common/numberStepper'
 
-import styles from "./OrderForm.module.css";
-import "../../../index.css";
+import '../../../index.css'
+import styles from './OrderForm.module.css'
 
 interface OrderFormProps {
-  item: Item;
-  onSubmit: (item: Item, quantity: number, preference: string) => void;
+  item: Item
+  onSubmit: (item: Item, quantity: number, preference: string) => void
 }
 
 const OrderForm: React.FC<OrderFormProps> = ({ item, onSubmit }) => {
-  const [quantity, setQuantity] = React.useState(1);
-  const [preference, setPreference] = React.useState("");
+  const [quantity, setQuantity] = React.useState(1)
+  const [preference, setPreference] = React.useState('')
 
   const increment = (): void => {
-    setQuantity((prev) => prev + 1);
-  };
+    setQuantity((prev) => prev + 1)
+  }
   const decrement = (): void => {
-    setQuantity((prev) => prev - 1);
-  };
+    setQuantity((prev) => prev - 1)
+  }
 
   return (
     <form
       onSubmit={(e) => {
-        e.preventDefault();
-        onSubmit(item, quantity, preference);
+        e.preventDefault()
+        onSubmit(item, quantity, preference)
       }}
     >
       <Flex className={`${styles.container} background`}>
@@ -47,7 +47,7 @@ const OrderForm: React.FC<OrderFormProps> = ({ item, onSubmit }) => {
             <h3>Optional</h3>
             <TextArea
               onChange={(e) => {
-                setPreference(e.target.value);
+                setPreference(e.target.value)
               }}
               placeholder="Reply to comment…"
               autoFocus={false}
@@ -63,7 +63,7 @@ const OrderForm: React.FC<OrderFormProps> = ({ item, onSubmit }) => {
             onIncrement={increment}
             onDecrement={decrement}
             onChange={(e) => {
-              setQuantity(Number(e.target.value));
+              setQuantity(Number(e.target.value))
             }}
           />
         </GenericSection>
@@ -76,7 +76,7 @@ const OrderForm: React.FC<OrderFormProps> = ({ item, onSubmit }) => {
         </Button>
       </GenericSection>
     </form>
-  );
-};
+  )
+}
 
-export default OrderForm;
+export default OrderForm

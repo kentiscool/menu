@@ -1,14 +1,14 @@
-import React from "react";
-import { Button, Flex } from "@radix-ui/themes";
+import React from 'react'
+import { Button, Flex } from '@radix-ui/themes'
 
-import styles from "./NumberStepper.module.css";
+import styles from './NumberStepper.module.css'
 
 interface Props {
-  value: number;
-  onIncrement: () => void;
-  onDecrement: () => void;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  className?: string;
+  value: number
+  onIncrement: () => void
+  onDecrement: () => void
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+  className?: string
 }
 
 const NumberStepper: React.FC<Props> = ({
@@ -16,7 +16,7 @@ const NumberStepper: React.FC<Props> = ({
   onIncrement,
   onDecrement,
   onChange,
-  className,
+  className
 }) => {
   return (
     <Flex className={`${styles.container} ${className}`}>
@@ -47,7 +47,7 @@ const NumberStepper: React.FC<Props> = ({
         <span className={styles.icon}>+</span>
       </Button>
     </Flex>
-  );
-};
+  )
+}
 
-export default NumberStepper;
+export default NumberStepper

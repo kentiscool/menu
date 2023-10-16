@@ -1,15 +1,15 @@
-import React from "react";
-import styles from "./GenericContainer.module.css";
+import React from 'react'
+import { Box } from '@radix-ui/themes'
 
-import { Box } from "@radix-ui/themes";
+import styles from './GenericContainer.module.css'
 
 interface Props {
-  children?: React.ReactNode;
-  className?: string;
+  children?: React.ReactNode
+  className?: string
 }
 
 const GenericContainer: React.FC<Props> = ({ children, className }) => {
-  return <Box className={`${styles.container} ${className}`}>{children}</Box>;
-};
+  return <Box className={`${styles.container} ${className}`}>{children}</Box>
+}
 
-export default GenericContainer;
+export default GenericContainer

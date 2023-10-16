@@ -1,18 +1,18 @@
-import * as React from "react";
-import styles from "./HorizontalItemCard.module.css";
-import "../../../index.css";
+import * as React from 'react'
+import { Flex } from '@radix-ui/themes'
 
-import { Flex } from "@radix-ui/themes";
+import type Item from '../../../models/Item'
 
-import GenericContainer from "../../common/genericContainer";
+import GenericContainer from '../../common/genericContainer'
 
-import type Item from "../../../models/Item";
+import '../../../index.css'
+import styles from './HorizontalItemCard.module.css'
 
 type Props = {
-  item: Item;
-  className?: string;
-  onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
-} & React.HTMLAttributes<HTMLDivElement>;
+  item: Item
+  className?: string
+  onClick?: (event: React.MouseEvent<HTMLDivElement>) => void
+} & React.HTMLAttributes<HTMLDivElement>
 
 const HorizontalItemCard: React.FC<Props> = ({ item, className, onClick }) => {
   return (
@@ -35,7 +35,7 @@ const HorizontalItemCard: React.FC<Props> = ({ item, className, onClick }) => {
         <img src={item.imageUrl} className={styles.image} />
       </Flex>
     </GenericContainer>
-  );
-};
+  )
+}
 
-export default HorizontalItemCard;
+export default HorizontalItemCard

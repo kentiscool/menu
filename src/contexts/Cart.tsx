@@ -1,49 +1,50 @@
 // https://kentcdodds.com/blog/how-to-use-react-context-effectively
-import * as React from "react";
-import { GenericBuilder, type Cart, type Order } from "../models";
+import * as React from 'react'
 
-const LOCAL_STORAGE_KEY = "cartState";
-const emptyCart: Cart = GenericBuilder.new<Cart>().set("orders", []).build();
+import { type Cart, GenericBuilder, type Order } from '../models'
+
+const LOCAL_STORAGE_KEY = 'cartState'
+const emptyCart: Cart = GenericBuilder.new<Cart>().set('orders', []).build()
 
 interface Props {
-  children?: React.ReactNode;
+  children?: React.ReactNode
 }
-type Action = AddItemAction | RemoveItemAction;
-type Dispatch = (action: Action) => void;
+type Action = AddItemAction | RemoveItemAction
+type Dispatch = (action: Action) => void
 
 const CartContext = React.createContext<
-  { state: Cart; dispatch: Dispatch } | undefined
->(undefined);
+{ state: Cart, dispatch: Dispatch } | undefined
+>(undefined)
 
-function CartReducer(state: Cart, action: Action): Cart {
+function CartReducer (state: Cart, action: Action): Cart {
   // state:  provided by React
   // action: passed in by Consumer via dispatch
-  return action._reduce(state);
+  return action._reduce(state)
 }
 
 const CartProvider: React.FC<Props> = ({ children }) => {
   const initialState: Cart = React.useMemo(() => {
-    const rawValue = localStorage.getItem(LOCAL_STORAGE_KEY);
+    const rawValue = localStorage.getItem(LOCAL_STORAGE_KEY)
 
     if (rawValue == null) {
-      return emptyCart;
+      return emptyCart
     }
 
     // Invalidate data older than 4 hours
     // Typescript doesn't perform typechecking at runtime and versioning is hard :p
-    const parsedValue = JSON.parse(rawValue);
+    const parsedValue = JSON.parse(rawValue)
     if (new Date().getTime() - parsedValue.timeStamp > 1000 * 60 * 60 * 4) {
-      return emptyCart;
+      return emptyCart
     }
 
-    return parsedValue.state;
-  }, []);
+    return parsedValue.state
+  }, [])
 
   const [state, dispatch] = React.useReducer<React.Reducer<Cart, Action>>(
     CartReducer,
-    initialState,
-  );
-  const value = { state, dispatch };
+    initialState
+  )
+  const value = { state, dispatch }
 
   React.useEffect(() => {
     // Retains state even when the component is unmounted (refresh, back, etc)
@@ -51,76 +52,76 @@ const CartProvider: React.FC<Props> = ({ children }) => {
       LOCAL_STORAGE_KEY,
       JSON.stringify({
         state,
-        timestamp: new Date().getTime(),
-      }),
-    );
-  }, [state]);
+        timestamp: new Date().getTime()
+      })
+    )
+  }, [state])
 
-  return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
-};
+  return <CartContext.Provider value={value}>{children}</CartContext.Provider>
+}
 
-function useCart(): any {
-  const context = React.useContext(CartContext);
+function useCart (): any {
+  const context = React.useContext(CartContext)
   if (context === undefined) {
-    throw new Error("useCart must be used within a CartProvider");
+    throw new Error('useCart must be used within a CartProvider')
   }
-  return context;
+  return context
 }
 
 class AddItemAction {
-  order: Order;
+  order: Order
 
-  constructor(order: Order) {
-    this.order = order;
+  constructor (order: Order) {
+    this.order = order
   }
 
-  _reduce(cart: Cart): Cart {
-    let foundMatchingOrder = false;
+  _reduce (cart: Cart): Cart {
+    let foundMatchingOrder = false
     const newOrders = cart.orders.map((order) => {
       if (
         order.item === this.order.item &&
         order.preference === this.order.preference
       ) {
-        foundMatchingOrder = true;
-        order.quantity += this.order.quantity;
+        foundMatchingOrder = true
+        order.quantity += this.order.quantity
       }
-      return order;
-    });
+      return order
+    })
 
     if (!foundMatchingOrder) {
-      newOrders.push(this.order);
+      newOrders.push(this.order)
     }
 
-    return GenericBuilder.new<Cart>().set("orders", newOrders).build();
+    return GenericBuilder.new<Cart>().set('orders', newOrders).build()
   }
 }
 
 class RemoveItemAction {
-  order: Order;
+  order: Order
 
-  constructor(order: Order) {
-    this.order = order;
+  constructor (order: Order) {
+    this.order = order
   }
 
-  _reduce(cart: Cart): Cart {
+  _reduce (cart: Cart): Cart {
     const newOrders: Order[] = cart.orders
       .map((order) => {
         if (
           order.item === this.order.item &&
           order.preference === this.order.preference
         ) {
-          order.quantity -= this.order.quantity;
+          order.quantity -= this.order.quantity
         }
-        return order.quantity > 0 ? order : null;
+        return order.quantity > 0 ? order : null
       })
-      .filter(isNotNullOrUndefined);
+      .filter(isNotNullOrUndefined)
 
-    return GenericBuilder.new<Cart>().set("orders", newOrders).build();
+    return GenericBuilder.new<Cart>().set('orders', newOrders).build()
   }
 }
 
-function isNotNullOrUndefined<T>(value: T | null | undefined): value is T {
-  return value !== null && value !== undefined;
+function isNotNullOrUndefined<T> (value: T | null | undefined): value is T {
+  return value !== null && value !== undefined
 }
 
-export { CartProvider, useCart, AddItemAction, RemoveItemAction };
+export { AddItemAction, CartProvider, RemoveItemAction, useCart }

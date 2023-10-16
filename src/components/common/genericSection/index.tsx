@@ -1,19 +1,20 @@
-import React from "react";
-import styles from "./GenericSection.module.css";
-import { Section } from "@radix-ui/themes";
+import React from 'react'
+import { Section } from '@radix-ui/themes'
+
+import styles from './GenericSection.module.css'
 
 interface Props {
-  children?: React.ReactNode;
-  className?: string;
-  separated?: boolean;
-  horizontallyPadded?: boolean;
+  children?: React.ReactNode
+  className?: string
+  separated?: boolean
+  horizontallyPadded?: boolean
 }
 
 const GenericSection: React.FC<Props> = ({
   children,
   className,
   separated,
-  horizontallyPadded = true,
+  horizontallyPadded = true
 }) => {
   return (
     <Section
@@ -24,7 +25,7 @@ const GenericSection: React.FC<Props> = ({
     >
       {children}
     </Section>
-  );
-};
+  )
+}
 
-export default GenericSection;
+export default GenericSection

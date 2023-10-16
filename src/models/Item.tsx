@@ -1,7 +1,7 @@
 export default class Item {
-  id!: string;
-  price!: number;
-  name!: string;
-  description!: string;
-  imageUrl!: string;
+  id!: string
+  price!: number
+  name!: string
+  description!: string
+  imageUrl!: string
 }

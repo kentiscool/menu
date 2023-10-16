@@ -1,14 +1,15 @@
-import React from "react";
-import styles from "./HorizontalOrderCard.module.css";
-import "../../../index.css";
+import React from 'react'
 
-import GenericContainer from "../../common/genericContainer";
-import NumberStepper from "../../common/numberStepper";
+import { type Order } from '../../../models'
 
-import { type Order } from "../../../models";
+import GenericContainer from '../../common/genericContainer'
+import NumberStepper from '../../common/numberStepper'
+
+import '../../../index.css'
+import styles from './HorizontalOrderCard.module.css'
 
 interface props {
-  order: Order;
+  order: Order
 }
 
 const HorizontalOrderCard: React.FC<props> = ({ order }) => {
@@ -34,7 +35,7 @@ const HorizontalOrderCard: React.FC<props> = ({ order }) => {
         />
       </div>
     </GenericContainer>
-  );
-};
+  )
+}
 
-export default HorizontalOrderCard;
+export default HorizontalOrderCard
