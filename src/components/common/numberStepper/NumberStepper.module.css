@@ -1,42 +1,42 @@
-@import '@radix-ui/colors/orange.css';
+@import "@radix-ui/colors/orange.css";
 
 .container {
-    max-height: 3rem;
-    max-width: 8rem;
-    min-width: 4rem;
-    border-left: 6rem !important;
-    border-right: 3rem !important;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    padding: 0% !important;
-    overflow: hidden;
-    border-radius: 3rem !important;
-    justify-content: center;
-    align-items: center;
+  max-height: 3rem;
+  max-width: 8rem;
+  min-width: 4rem;
+  border-left: 6rem !important;
+  border-right: 3rem !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  padding: 0% !important;
+  overflow: hidden;
+  border-radius: 3rem !important;
+  justify-content: center;
+  align-items: center;
 }
 
 .number_input {
-    border: 0px !important;
-    text-align: center;
-    width: 33%;
-    font-weight: bold;
+  border: 0px !important;
+  text-align: center;
+  width: 33%;
+  font-weight: bold;
 }
 
 .decrement_button {
-    background-color: white !important;
-    height: 100% !important;
-    justify-content: center;
-    width: 33%;
+  background-color: white !important;
+  height: 100% !important;
+  justify-content: center;
+  width: 33%;
 }
 
 .increment_button {
-    background-color: white !important;
-    height: 100% !important;
-    justify-content: center;
-    width: 33%;
+  background-color: white !important;
+  height: 100% !important;
+  justify-content: center;
+  width: 33%;
 }
 
 .icon {
-    color: var(--accent-9) !important;
-    font-weight: 1000;
-    font-size: 1.5rem;
+  color: var(--accent-9) !important;
+  font-weight: 1000;
+  font-size: 1.5rem;
 }

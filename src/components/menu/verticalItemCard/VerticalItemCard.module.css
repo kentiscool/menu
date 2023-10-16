@@ -1,25 +1,24 @@
 .container {
-    width: 40vw;
+  width: 40vw;
 }
 
 .image {
-    height: 70%;
-    width: 100%;
-    object-fit: contain;
-    overflow: hidden;
-    display: block;
+  height: 70%;
+  width: 100%;
+  object-fit: contain;
+  overflow: hidden;
+  display: block;
 }
 
 .info_container {
-    padding: 0.3rem;
-    padding-top: 0.5rem;
-    
+  padding: 0.3rem;
+  padding-top: 0.5rem;
 }
 
 .title {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;  /* Limit text to 2 lines */
-    overflow: hidden;       /* Hide the excess content */
-    margin-bottom: 0.2rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1; /* Limit text to 2 lines */
+  overflow: hidden; /* Hide the excess content */
+  margin-bottom: 0.2rem;
 }

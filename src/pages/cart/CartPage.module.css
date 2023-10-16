@@ -1,27 +1,27 @@
 .exit_button {
-    background-color: white !important;
-    margin-left: 1rem !important;
-    margin-top: 1rem !important;
-    height: 1rem;
-    width: 1rem;
+  background-color: white !important;
+  margin-left: 1rem !important;
+  margin-top: 1rem !important;
+  height: 1rem;
+  width: 1rem;
 }
 
 .exit_icon {
-    color: black;
+  color: black;
 }
 
 .order_list {
-    margin-top: 1rem;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    overflow-y: scroll;
-    overflow-x: hidden;
+  margin-top: 1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .order_list > div {
-    margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
 }

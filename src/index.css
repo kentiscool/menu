@@ -1,4 +1,4 @@
-@import '@radix-ui/colors/gray.css';
+@import "@radix-ui/colors/gray.css";
 
 .background {
   background-color: var(--gray-2) !important;

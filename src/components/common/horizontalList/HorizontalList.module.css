@@ -1,17 +1,17 @@
 .list {
-    overflow-x: scroll;
-    max-width: max-content;
-    max-width: 100%;
+  overflow-x: scroll;
+  max-width: max-content;
+  max-width: 100%;
 }
 
 .list::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .list > :first-child {
-    margin-left: 1rem;
+  margin-left: 1rem;
 }
 
 .list > :last-child {
-    margin-right: 1rem;
+  margin-right: 1rem;
 }

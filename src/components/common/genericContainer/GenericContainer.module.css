@@ -1,9 +1,9 @@
-@import '@radix-ui/colors/gray.css';
+@import "@radix-ui/colors/gray.css";
 
 .container {
-    display: inline-block;
-    border-radius: 0.5rem;
-    border: 0.15rem solid var(--gray-3);
-    box-sizing: border-box; 
-    overflow: auto;
+  display: inline-block;
+  border-radius: 0.5rem;
+  border: 0.15rem solid var(--gray-3);
+  box-sizing: border-box;
+  overflow: auto;
 }
