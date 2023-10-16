@@ -1,26 +1,26 @@
-import React, { forwardRef, ReactNode } from 'react';
-import { Button, Flex, Heading } from '@radix-ui/themes';
-import { Dialog, DialogTrigger, DialogOverlay, DialogContent } from '@radix-ui/react-dialog';
+import React, { forwardRef, type ReactNode } from 'react'
+import { Button, Flex } from '@radix-ui/themes'
+import { Dialog, DialogTrigger, DialogOverlay, DialogContent } from '@radix-ui/react-dialog'
 
-import OrderForm from './orderForm';
-import GenericSection from '../../components/common/genericSection';
-import HorizontalList from '../../components/common/horizontalList';
-import CategoryCard from '../../components/menu/categoryCard';
-import HorizontalItemCard from '../../components/menu/horizontalItemCard';
-import VerticalItemCard from '../../components/menu/verticalItemCard';
+import OrderForm from './orderForm'
+import GenericSection from '../../components/common/genericSection'
+import HorizontalList from '../../components/common/horizontalList'
+import CategoryCard from '../../components/menu/categoryCard'
+import HorizontalItemCard from '../../components/menu/horizontalItemCard'
+import VerticalItemCard from '../../components/menu/verticalItemCard'
 
-import { GenericBuilder, Category, Item, Order } from '../../models'
-import { AddItemAction, useCart } from '../../contexts/Cart';
+import { GenericBuilder, type Category, type Item, type Order } from '../../models'
+import { AddItemAction, useCart } from '../../contexts/Cart'
 
 import styles from './MenuPage.module.css'
 import '../../index.css'
 
 const MenuPage: React.FC = () => {
-    const { state, dispatch } = useCart();
-    const featuredItems: Item[] = getItems();
-    const categories: Category[] = getCategories();
-    const [selectedItem, setSelectedItem] = React.useState<Item | null>(null);
-    return (
+  const { state, dispatch } = useCart()
+  const featuredItems: Item[] = getItems()
+  const categories: Category[] = getCategories()
+  const [selectedItem, setSelectedItem] = React.useState<Item | null>(null)
+  return (
         <Dialog>
             <Flex direction='column' gap='2' className={`${styles.menu} background`}>
                 <div>
@@ -28,26 +28,26 @@ const MenuPage: React.FC = () => {
                         <h1>Featured Items</h1>
                     </GenericSection>
                     <GenericSection className={styles.featured_section} horizontallyPadded={false}>
-                        <HorizontalList 
+                        <HorizontalList
                             title='Featured Items'
                             elements={featuredItems}
-                            renderItem={(e: Item) => 
+                            renderItem={(e: Item) =>
                                 <DialogTrigger asChild key={e.id}>
                                     <RefForwardingWrapper>
-                                        <VerticalItemCard item={e} onClick={(_) => setSelectedItem(e)}/>
+                                        <VerticalItemCard item={e} onClick={(_) => { setSelectedItem(e) }}/>
                                     </RefForwardingWrapper>
                                 </DialogTrigger>
                             }/>
                     </GenericSection>
                 </div>
-                
+
                 <div>
                     <GenericSection className={styles.catagories_header}>
                         <h1>Categories</h1>
                     </GenericSection>
-                    
+
                     <GenericSection horizontallyPadded={false} className={styles.catagories_section}>
-                        <HorizontalList 
+                        <HorizontalList
                             title='Categories'
                             elements={categories}
                             renderItem={(e: Category) => <CategoryCard key={e.id} category={e}/>}/>
@@ -60,10 +60,10 @@ const MenuPage: React.FC = () => {
                     </GenericSection>
 
                     <GenericSection>
-                        {featuredItems.map((e: Item) => 
+                        {featuredItems.map((e: Item) =>
                             <DialogTrigger asChild key={e.id}>
                                 <RefForwardingWrapper>
-                                    <HorizontalItemCard item={e} onClick={(_) => setSelectedItem(e)}/>
+                                    <HorizontalItemCard item={e} onClick={(_) => { setSelectedItem(e) }}/>
                                 </RefForwardingWrapper>
                             </DialogTrigger>
                         )}
@@ -73,117 +73,121 @@ const MenuPage: React.FC = () => {
 
             {state.orders.length > 0 &&
                 <Button className={styles.continue_button}>
-                    Continue 
-                </Button> 
-            } 
+                    Continue
+                </Button>
+            }
 
             <DialogOverlay className={styles.dialog_overlay}>
-                <DialogContent className={``}>
-                    {selectedItem !== null && 
-                        <OrderForm 
-                            item={selectedItem} 
-                            onSubmit={(item, quantity, preference) => dispatch(new AddItemAction(GenericBuilder.new<Order>()
-                                    .set('item', item)
-                                    .set('quantity', quantity)
-                                    .set('preference', preference)
-                                    .build()
-                                ))
+                <DialogContent className={''}>
+                    {selectedItem !== null &&
+                        <OrderForm
+                            item={selectedItem}
+                            onSubmit={(item, quantity, preference) => {
+                              dispatch(new AddItemAction(GenericBuilder.new<Order>()
+                                .set('id', 'asdasd')
+                                .set('item', item)
+                                .set('quantity', quantity)
+                                .set('preference', preference)
+                                .build()
+                              ))
+                            }
                             }/>
                     }
                 </DialogContent>
             </DialogOverlay>
         </Dialog>
-    );
+  )
 }
 
 interface RefForwardingWrapperProps {
-    children: ReactNode;
-    [key: string]: any;
+  children: ReactNode
+  [key: string]: any
 }
-  
+
 const RefForwardingWrapper = forwardRef<HTMLDivElement, RefForwardingWrapperProps>(
-    ({ children, ...props }, ref) => {
-        return (
+  ({ children, ...props }, ref) => {
+    return (
         <div ref={ref} {...props}>
             {children}
         </div>
-        );
-    }
-);
-
-function getItems(): Item[] {
-    let items: Item[] = [];
-
-    items.push(GenericBuilder.new<Item>()
-        .set('id', 'item1')
-        .set('price', 100)
-        .set('name','Kucing Goreng Saus Padang asdasdasdasdasdasdasdasdas asds')
-        .set('description','Solid option')
-        .set('imageUrl','https://placekitten.com/500/500')
-        .build()
     )
+  }
+)
+RefForwardingWrapper.displayName = 'ForwardedHorizontalItemCard' // eslint is will complain if this is not present
 
-    items.push(GenericBuilder.new<Item>()
-        .set('id', 'item2')
-        .set('price', 100)
-        .set('name','Item 2')
-        .set('description','Solid option')
-        .set('imageUrl','https://placekitten.com/500/501')
-        .build()
-    )
+function getItems (): Item[] {
+  const items: Item[] = []
 
-    items.push(GenericBuilder.new<Item>()
-        .set('id', 'item3')
-        .set('price', 100)
-        .set('name','Item 2')
-        .set('description','Solid option')
-        .set('imageUrl','https://placekitten.com/500/502')
-        .build()
-    )
+  items.push(GenericBuilder.new<Item>()
+    .set('id', 'item1')
+    .set('price', 100)
+    .set('name', 'Kucing Goreng Saus Padang asdasdasdasdasdasdasdasdas asds')
+    .set('description', 'Solid option')
+    .set('imageUrl', 'https://placekitten.com/500/500')
+    .build()
+  )
 
-    items.push(GenericBuilder.new<Item>()
-        .set('id', 'item4')
-        .set('price', 100)
-        .set('name','Item 2')
-        .set('description','Solid option')
-        .set('imageUrl','https://placekitten.com/500/503')
-        .build()
-    )
+  items.push(GenericBuilder.new<Item>()
+    .set('id', 'item2')
+    .set('price', 100)
+    .set('name', 'Item 2')
+    .set('description', 'Solid option')
+    .set('imageUrl', 'https://placekitten.com/500/501')
+    .build()
+  )
 
-    items.push(GenericBuilder.new<Item>()
-        .set('id', 'item5')
-        .set('price', 100)
-        .set('name','Item 2')
-        .set('description','Solid option')
-        .set('imageUrl','https://placekitten.com/500/504')
-        .build()
-    )
+  items.push(GenericBuilder.new<Item>()
+    .set('id', 'item3')
+    .set('price', 100)
+    .set('name', 'Item 2')
+    .set('description', 'Solid option')
+    .set('imageUrl', 'https://placekitten.com/500/502')
+    .build()
+  )
 
-    items.push(GenericBuilder.new<Item>()
-        .set('id', 'item6')
-        .set('price', 100)
-        .set('name','Item 2')
-        .set('description','Solid option')
-        .set('imageUrl','https://placekitten.com/500/505')
-        .build()
-    )
+  items.push(GenericBuilder.new<Item>()
+    .set('id', 'item4')
+    .set('price', 100)
+    .set('name', 'Item 2')
+    .set('description', 'Solid option')
+    .set('imageUrl', 'https://placekitten.com/500/503')
+    .build()
+  )
 
-    return items;
+  items.push(GenericBuilder.new<Item>()
+    .set('id', 'item5')
+    .set('price', 100)
+    .set('name', 'Item 2')
+    .set('description', 'Solid option')
+    .set('imageUrl', 'https://placekitten.com/500/504')
+    .build()
+  )
+
+  items.push(GenericBuilder.new<Item>()
+    .set('id', 'item6')
+    .set('price', 100)
+    .set('name', 'Item 2')
+    .set('description', 'Solid option')
+    .set('imageUrl', 'https://placekitten.com/500/505')
+    .build()
+  )
+
+  return items
 }
 
-function getCategories(): Category[] {
-    let categories: Category[] = [];
+function getCategories (): Category[] {
+  const categories: Category[] = []
 
-    categories.push(GenericBuilder.new<Category>()
-        .set('id', 'category 1')
-        .set('name', 'entree')
-        .set('description', 'nice')
-        .set('imageUrl', 'https://placekitten.com/100/0')
-        .set('itemIds', [])
-        .build()
-    )
+  categories.push(GenericBuilder.new<Category>()
+    .set('id', 'category 1')
+    .set('name', 'entree')
+    .set('description', 'nice')
+    .set('imageUrl', 'https://placekitten.com/100/0')
+    .set('itemIds', [])
+    .build()
+  )
 
-    return categories;
+  return categories
 }
 
 export default MenuPage

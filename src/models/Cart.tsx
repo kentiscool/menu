@@ -1,5 +1,5 @@
-import Order from "./Order";
+import type Order from './Order'
 
 export default class Cart {
-    orders!: Order[]; 
+  orders!: Order[]
 }

@@ -1,10 +1,10 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React from 'react'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
-import './App.css';
-import MenuPage from './pages/menu';
-import { CartProvider } from './contexts/Cart';
-import CartPage from './pages/cart';
+import './App.css'
+import MenuPage from './pages/menu'
+import { CartProvider } from './contexts/Cart'
+import CartPage from './pages/cart'
 
 const App: React.FC = () => {
   return (
@@ -18,7 +18,7 @@ const App: React.FC = () => {
           </CartProvider>
         </div>
       </Router>
-  );
+  )
 }
 
-export default App;
+export default App

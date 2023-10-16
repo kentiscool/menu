@@ -1,30 +1,30 @@
-import React from 'react';
-import { Button, Flex, Heading, Separator, Text, TextArea } from '@radix-ui/themes';
+import React from 'react'
+import { Button, Flex, Separator, TextArea } from '@radix-ui/themes'
 
-import GenericSection from '../../../components/common/genericSection';
-import NumberStepper from '../../../components/common/numberStepper';
+import GenericSection from '../../../components/common/genericSection'
+import NumberStepper from '../../../components/common/numberStepper'
 
-import { Item } from '../../../models'
+import { type Item } from '../../../models'
 
 import styles from './OrderForm.module.css'
 import '../../../index.css'
 
 interface OrderFormProps {
-    item: Item;
-    onSubmit: (item: Item, quantity: number, preference: string) => void;
+  item: Item
+  onSubmit: (item: Item, quantity: number, preference: string) => void
 }
 
 const OrderForm: React.FC<OrderFormProps> = ({ item, onSubmit }) => {
-    const [quantity, setQuantity] = React.useState(1);
-    const [preference, setPreference] = React.useState("")
+  const [quantity, setQuantity] = React.useState(1)
+  const [preference, setPreference] = React.useState('')
 
-    const increment = () => setQuantity(prev => prev + 1);
-    const decrement = () => setQuantity(prev => prev - 1);
+  const increment = (): void => { setQuantity(prev => prev + 1) }
+  const decrement = (): void => { setQuantity(prev => prev - 1) }
 
-    return (
+  return (
         <form onSubmit={e => {
-            e.preventDefault();
-            onSubmit(item, quantity, preference)
+          e.preventDefault()
+          onSubmit(item, quantity, preference)
         }}>
             <Flex className={`${styles.container} background`}>
                 <img src={item?.imageUrl} className={styles.image}/>
@@ -34,12 +34,12 @@ const OrderForm: React.FC<OrderFormProps> = ({ item, onSubmit }) => {
                         <h3>{item?.description}</h3>
                     </Flex>
                 </GenericSection>
-                
+
                 <GenericSection separated className={styles.preference_section}>
                     <Flex direction="column">
                         <h2>Preferences</h2>
                         <h3>Optional</h3>
-                        <TextArea onChange={e => setPreference(e.target.value)} placeholder="Reply to comment…" autoFocus={false} tabIndex={-1}/>
+                        <TextArea onChange={e => { setPreference(e.target.value) }} placeholder="Reply to comment…" autoFocus={false} tabIndex={-1}/>
                         <Separator orientation="horizontal" size="4"/>
                     </Flex>
                 </GenericSection>
@@ -49,7 +49,7 @@ const OrderForm: React.FC<OrderFormProps> = ({ item, onSubmit }) => {
                         value={quantity}
                         onIncrement={increment}
                         onDecrement={decrement}
-                        onChange={e => setQuantity(Number(e.target.value))}
+                        onChange={e => { setQuantity(Number(e.target.value)) }}
                     />
                 </GenericSection>
             </Flex>
@@ -61,7 +61,7 @@ const OrderForm: React.FC<OrderFormProps> = ({ item, onSubmit }) => {
                 </Button>
             </GenericSection>
         </form>
-    )
+  )
 }
 
 export default OrderForm

@@ -1,7 +1,8 @@
-import Item from "./Item";
+import type Item from './Item'
 
 export default class Order {
-    item!: Item;
-    quantity!: number;
-    preference!: string;
+  id!: string
+  item!: Item
+  quantity!: number
+  preference!: string
 }
